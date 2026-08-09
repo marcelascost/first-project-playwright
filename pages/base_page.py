@@ -7,10 +7,10 @@ class BasePage:
         self.botao_cadastro = page.get_by_role('link', name='Signup / Login')
 
     def acessar_home(self):
-        self.page.goto('https://automationexercise.com/')
+        self.page.goto('')
 
     def acessar_carrinho(self):
-        self.page.click('https://automationexercise.com/view_cart')
+        self.page.click('view_cart')
 
     def acessar_cadastro_login(self):
-        self.page.goto('https://automationexercise.com/login')
+        self.page.goto('login')
