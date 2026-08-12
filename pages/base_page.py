@@ -5,6 +5,7 @@ class BasePage:
         self.botao_produtos = page.get_by_role('link', name='Products')
         self.botao_carrinho = page.get_by_role('link', name='Cart')
         self.botao_cadastro = page.get_by_role('link', name='Signup / Login')
+        self.button_logout = page.get_by_role("link", name="Logout")
 
     def acessar_home(self):
         self.page.goto('')
