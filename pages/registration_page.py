@@ -22,6 +22,9 @@ class RegistrationPage(CadastroLogin):
         self.input_zipcode = page.locator("#zipcode")
         self.input_mobile = page.get_by_role("textbox", name="Mobile Number *")
         self.select_country = page.get_by_label('Country *')
+        self.button_new_registration = page.get_by_role("button", name="Create Account")
+        self.button_continue = page.get_by_role("link", name="Continue")
+        self.button_remove_account = page.get_by_role("link", name=" Delete Account")
 
     def fill_registration_form(self, titulo="", nome="", senha="", data_aniversario="",
                                sign_up_for_our_newsletter= True, recieve_special_offers_from= True):

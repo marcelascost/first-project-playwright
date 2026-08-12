@@ -1,13 +1,13 @@
 import pytest
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='session')
 def contexto(browser):
     contexto = browser.new_context(base_url='https://automationexercise.com/',
                                    record_video_dir='videos')
     yield contexto
     contexto.close()
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='session')
 def page(contexto):
     pagina = contexto.new_page()
     pagina.set_default_timeout(10000)
