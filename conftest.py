@@ -2,8 +2,8 @@ import pytest
 
 @pytest.fixture(scope='session')
 def contexto(browser):
-    contexto = browser.new_context(base_url='https://automationexercise.com/',
-                                   record_video_dir='videos')
+    contexto = browser.new_context(base_url='https://automationexercise.com/')
+                                   #record_video_dir='videos'
     yield contexto
     contexto.close()
 
