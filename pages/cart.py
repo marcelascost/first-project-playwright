@@ -8,6 +8,7 @@ class Cart(BasePage):
         self.label_description_product = page.locator('.cart_description p')
         self.label_product_price = page.locator('.cart_price')
         self.label_total_price = page.locator('.cart_total_price')
+        self.button_delete_product = page.locator('.cart_quantity_delete')
 
     def validate_cart(self, index, header_description, description_product, product_price, total_price):
         expect(self.label_header_description.nth(index)).to_have_text(header_description)
