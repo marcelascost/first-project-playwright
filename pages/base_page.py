@@ -7,7 +7,7 @@ class BasePage:
         self.botao_cadastro = page.get_by_role('link', name='Signup / Login')
         self.button_logout = page.get_by_role("link", name="Logout")
 
-    def acessar_home(self):
+    def access_home(self):
         self.page.goto('')
 
     def access_cart(self):
@@ -16,5 +16,5 @@ class BasePage:
     def access_products(self):
         self.page.goto('products')
 
-    def acessar_cadastro_login(self):
+    def access_cad_login(self):
         self.page.goto('login')
