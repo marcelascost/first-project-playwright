@@ -2,6 +2,11 @@ from pages.base_page import BasePage
 from playwright.sync_api import expect
 
 def test_validate_home(page):
+    """
+    -Acessar a home
+    -Validar se header é visivel
+    """
+    print(test_validate_home.__doc__)
     page = BasePage(page)
     page.access_home()
     expect(page.get_by_role("heading", name="AutomationExercise")).to_be_visible()
