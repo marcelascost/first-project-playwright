@@ -2,6 +2,7 @@ import pytest
 import pytest
 import pytest_html
 from slugify import slugify # pip install python-slugify
+import os
 
 @pytest.fixture(scope='session')
 def contexto(browser):
@@ -11,7 +12,7 @@ def contexto(browser):
     contexto.close()
 
 @pytest.fixture(scope='session')
-def page(contexto):
+def set_up_page(contexto):
     pagina = contexto.new_page()
     pagina.set_default_timeout(10000)
     pagina.set_default_navigation_timeout(30000)
@@ -47,3 +48,23 @@ def pytest_runtest_makereport(item, call):
         except Exception as e:
             print(f"Error capturing screenshot: {e}")
     report.extra = extras
+
+STORAGE_FILE = "playwright/auth/state.json"
+@pytest.fixture(scope='session')
+def context(browser):
+ if os.path.isfile(STORAGE_FILE):
+     contexto = browser.new_context(
+         base_url='https://automationexercise.com/',
+         record_video_dir='videos',
+         storage_state=STORAGE_FILE
+     )
+     else:
+     context = browser.new_context(
+         base_url='https://automationexercise.com/',
+         record_video_dir='videos'
+     )
+     yield context
+     os.makedirs(os.path.dirname(STORAGE_FILE), exist_ok=True)
+     if not os.path.isfile(STORAGE_FILE):
+         context.storage_state(path=STORAGE_FILE)
+     context.close()
