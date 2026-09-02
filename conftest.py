@@ -58,7 +58,7 @@ def context(browser):
          record_video_dir='videos',
          storage_state=STORAGE_FILE
      )
-     else:
+ else:
      context = browser.new_context(
          base_url='https://automationexercise.com/',
          record_video_dir='videos'
